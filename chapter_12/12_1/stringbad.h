@@ -15,6 +15,7 @@ private:
 public:
     StringBad(const char *s);
     StringBad();
+    StringBad(const StringBad &st);
     ~StringBad();
     friend ostream &operator<<(ostream &os, const StringBad &st);
 };
