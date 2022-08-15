@@ -40,7 +40,7 @@ int main(void)
     pc2->Show();
 
     JustTesting *pc3, *pc4;
-    pc3 = new (buffer) JustTesting("Bad Idea", 6);
+    pc3 = new (buffer + sizeof(JustTesting)) JustTesting("Bad Idea", 6);//与pc1创建的对象位置错开
     pc4 = new JustTesting("hjy", 10);
 
     cout << pc3 << ": ";
@@ -50,9 +50,10 @@ int main(void)
 
     delete pc2;
     delete pc4;
-
     // delete pc1;
     // delete pc3;//delete 不能与定位new运算符配合使用
+    pc3->~JustTesting();
+    pc1->~JustTesting();
 
     delete[] buffer;
 
