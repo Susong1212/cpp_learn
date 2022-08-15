@@ -16,10 +16,10 @@ private:
 public:
     Brass(const string &s = "Nullbody", long an = -1, double bal = 0.0);
     void Deposit(double amt);
-    virtual void Withdraw(double amt);
+    virtual void Withdraw(double amt);//虚函数，程序将根据引用或指针指向的对象类型来选择方法
     double Balance() const;
     virtual void ViewAcct() const;
-    virtual ~Brass() {}
+    virtual ~Brass() {} //析构函数一定要定义为虚函数，可以确保正确的析构函数序列被调用
 };
 
 class BrassPlus : public Brass
