@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class AcctABC
+class AcctABC//包含纯虚函数，所以该类为抽象类，只能作基类，不能创建该类的对象
 {
 private:
     string fullName;
@@ -20,7 +20,7 @@ protected:
 public:
     AcctABC(const string &s = "Nullbody", long an = -1, double bal = 0.0);
     void Deposit(double amt);
-    virtual void Withdraw(double amt) = 0;
+    virtual void Withdraw(double amt) = 0;//纯虚函数
     double Balance() const { return balance; }
     virtual void ViewAcct() const = 0;
     virtual ~AcctABC() {}
